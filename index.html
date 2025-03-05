@@ -63,7 +63,6 @@
 </head>
 <body>
 
-    <!-- Imagen al inicio -->
     <img src="fs.png" alt="XV Gaby" class="imagen">
 
     <div class="invitacion">
@@ -75,7 +74,7 @@
             Los invito a compartir conmigo este día tan especial.
         </p>
 
-        <!-- Imagen insertada después del texto -->
+        
         <img src="suetergood.png" alt="Imagen de Gaby" class="imagen">
 
         <p class="evento">Fecha: Sábado 22 de marzo de 2025</p>
@@ -107,7 +106,7 @@
 
         <h1>Galería</h1>
         
-    </div>
+    
     
 <img src="15!.png" alt="Imagen de Gaby" class="imagen">
 <img src="bote.png" alt="Imagen de Gaby" class="imagen">
@@ -119,5 +118,43 @@
 <img src="suetergood.png" alt="Imagen de Gaby" class="imagen">
 <img src="vista.png" alt="Imagen de Gaby" class="imagen">
 
+
+
+
+
+
+<h2 style="font-family: 'Lobster', cursive; color: #0a4b73;">Faltan:</h2>
+<h1 id="countdown" style="font-size: 30px; font-weight: bold; color: #0a4b73;"></h1>
+
+<script>
+    // Establecer la fecha del evento (22 de marzo de 2025 a las 20:00 horas)
+    const eventDate = new Date("March 22, 2025 20:00:00").getTime();
+
+    // Actualizar la cuenta regresiva cada segundo
+    const countdownFunction = setInterval(function() {
+        const now = new Date().getTime();
+        const timeLeft = eventDate - now;
+
+        // Calcular días, horas, minutos y segundos
+        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+        // Mostrar en el HTML
+        document.getElementById("countdown").innerHTML = days + " días " + hours + "h " + minutes + "m " + seconds + "s ";
+
+        // Si la cuenta regresiva termina
+        if (timeLeft < 0) {
+            clearInterval(countdownFunction);
+            document.getElementById("countdown").innerHTML = "¡Es el gran día!";
+        }
+    }, 1000);
+</script>
+
+
+</div>
+
+    
 </body>
 </html>
